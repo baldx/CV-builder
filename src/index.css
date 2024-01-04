@@ -2,6 +2,14 @@ body {
   margin: 0px;
   display: flex;
   background: var(--light);
+  display: flex;
+  width: 100vw;
+  justify-content: space-evenly;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 :root {
@@ -10,3 +18,45 @@ body {
   --light-blue: #A4EBF3;
   --grey: #AAAAAA;
 }
+
+main, form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+  font-size: 1.2em;
+}
+
+main .top button {
+  font-size: 1em;
+  padding: 9px;
+  width: 200px;
+  border: none;
+  border-radius: 10px;
+  background-color: #e1e1e1;
+}
+
+main .top .clear {
+  color: red;
+  background: none;
+}
+
+button {
+  transition: all 100ms ease-in-out;
+}
+
+main .top button:hover {
+  background: var(--cold);
+}
+
+.top {
+  background: white;
+  width: 450px;
+  height: 60px;
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 10px;
+}
+
+
+
