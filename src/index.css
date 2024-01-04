@@ -1,0 +1,12 @@
+body {
+  margin: 0px;
+  display: flex;
+  background: var(--light);
+}
+
+:root {
+  --light: #F4F9F9;
+  --cold: #CCF2F4;
+  --light-blue: #A4EBF3;
+  --grey: #AAAAAA;
+}
