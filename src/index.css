@@ -4,7 +4,8 @@ body {
   background: var(--light);
   display: flex;
   width: 100vw;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 32px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -95,4 +96,37 @@ input:invalid {
   font-size: 1em;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.CV {
+  height: 90vh;
+  background: orange;
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+}
+
+header {
+  background: var(--light-blue);
+  width: inherit;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  font-size: 1.6em;
+}
+
+.personal-other {
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  gap: 24px;
+  font-size: 1.4em;
 }
