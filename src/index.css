@@ -61,6 +61,7 @@ main .top button:hover, .submit:hover {
 
 form {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background: #f3f4f6;
   padding: 32px;
 }
 
@@ -100,7 +101,8 @@ input:invalid {
 
 .CV {
   height: 90vh;
-  background: orange;
+  background: #f3f4f6;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   width: 40vw;
   display: flex;
   flex-direction: column;
@@ -109,7 +111,8 @@ input:invalid {
 }
 
 header {
-  background: var(--light-blue);
+  background: #0e374e;
+  color: white;
   width: inherit;
   height: 15vh;
   display: flex;
@@ -120,6 +123,7 @@ header {
 
 .name {
   font-size: 1.6em;
+  font-weight: 700;
 }
 
 .personal-other {
@@ -129,4 +133,42 @@ header {
   margin-top: 16px;
   gap: 24px;
   font-size: 1.4em;
+}
+
+.education, .experience {
+  width: inherit;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.education-top, .experience-top {
+  font-size: 1.5em;
+  background: rgba(100, 100, 111, 0.2); /*change later*/
+  padding: 4px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.education-bottom, .experience-bottom {
+  font-size: 1.2em;
+  width: inherit;
+  display: flex;
+  gap: 32px;
+  padding: 16px;
+}
+
+.left, .right {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  margin-left: 32px;
+}
+
+.date {
+  display: flex;
+  
 }
