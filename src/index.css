@@ -24,7 +24,7 @@ main, form {
   display: flex;
   flex-direction: column;
   margin-top: 32px;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 main .top button {
@@ -170,5 +170,13 @@ header {
 
 .date {
   display: flex;
-  
+}
+
+.startEnd {
+  display: flex;
+  gap: 20px;
+}
+
+::placeholder {
+  font-style: italic;
 }
