@@ -108,6 +108,8 @@ input:invalid {
   flex-direction: column;
   align-items: center;
   margin-top: 32px;
+  position: sticky;
+  top: 0px;
 }
 
 header {
@@ -146,7 +148,7 @@ header {
 
 .education-top, .experience-top {
   font-size: 1.5em;
-  background: rgba(100, 100, 111, 0.2); /*change later*/
+  background: rgba(100, 100, 111, 0.2); 
   padding: 4px;
   width: 100%;
   text-align: center;
@@ -179,4 +181,17 @@ header {
 
 ::placeholder {
   font-style: italic;
+}
+
+textarea {
+  resize: none;
+  border: none;
+  padding: 8px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+  outline-color: var(--grey);
+}
+
+.experience-form {
+  margin-bottom: 64px;
 }
