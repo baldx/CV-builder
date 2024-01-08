@@ -28,8 +28,6 @@ function EducationExperience({type, name, result, startDate, endDate, location, 
             <button type="submit" className="submit">
                 Submit
             </button>
-            
-
         </form>
         </>
     )
@@ -41,7 +39,9 @@ export default function Forms() {
 
     return (
         <>
-        <EducationExperience type="Education" name="School" result="Degree" startDate="Start" endDate="End" location="location" />
+        <main>
+            <EducationExperience type="Education" name="School" result="Degree" startDate="Start" endDate="End" location="location" />
+        </main>
         </>
     )
 }
