@@ -7,10 +7,12 @@ body {
   justify-content: center;
   gap: 32px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  overflow-x: hidden;
 }
 
 #root {
   margin-top: 32px;
+  margin-bottom: 32px;
 }
 
 * {
@@ -51,6 +53,10 @@ button {
 
 .option:hover, .submit:hover {
   background: var(--cold);
+}
+
+.option {
+  font-weight: 700;
 }
 
 .top {
@@ -113,7 +119,7 @@ input:invalid {
   align-items: center;
   margin-top: 32px;
   position: sticky;
-  top: 0px;
+  top: 32px;
 }
 
 header {
