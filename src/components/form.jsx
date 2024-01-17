@@ -65,14 +65,15 @@ function EducationExperience({type, name, result, startDate, endDate, location, 
 
 }
 
+//get .CV inside #root
 export default function Forms() {
     return (
         <>
-        <main>
             <EducationExperience type="Personal" name="Name" email="Email" number="Number" location="location"/>
             <EducationExperience type="Education" name="School" result="Degree" startDate="Start" endDate="End" location="location" />
-            <EducationExperience type="Experience" name="Company" result="Position" startDate="Start" endDate="End" location="location" />
-        </main>
+            <EducationExperience type="Experience" name="Company" result="Position" startDate="Start" endDate="End" location="location" />   
+
+            
         </>
     )
 }
