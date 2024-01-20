@@ -13,6 +13,9 @@ body {
 #root {
   margin-top: 32px;
   margin-bottom: 32px;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 32px;
 }
 
 * {
@@ -117,7 +120,6 @@ input:invalid {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 32px;
   position: sticky;
   top: 32px;
 }
