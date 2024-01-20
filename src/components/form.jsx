@@ -1,7 +1,33 @@
 import { useState } from 'react'
+import CreateButtons from './topOption';
 
-function EducationExperience({type, name, result, startDate, endDate, location, description, number, email}) {
-    const [fullName, setFullName] = useState('');
+function PersonalInfo ({name, email, phone, address}) {
+    return (
+        <>
+            <header>
+                <div className="name">{name}</div>
+                <div className="personal-other">
+                    <div className="email">{email}</div>
+                    <div className="phone">{phone}</div>
+                    <div className="address">{address}</div>
+                </div>
+            </header>
+        </>
+    )
+}
+
+function CreateForm({type, name, result, startDate, endDate, location, description, number, email}) {
+    
+    const [fullName, setFullName] = useState('asdadökjasdö');
+    const [fullEmail, setFullEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [address, setAddress] = useState('');
+    
+
+
+    function handleInputChange (e) {
+        setFullName(e.target.value);
+    }
 
     if (startDate || endDate) {
         return (
@@ -10,7 +36,7 @@ function EducationExperience({type, name, result, startDate, endDate, location, 
             <div className="form-title">{type}</div>
                 <label htmlFor={name}>
                     {name}
-                    <input type="text" name={name} id={name} placeholder={"Enter " + name} value={fullName} onChange={event => setFullName(event.target.value)}></input>
+                    <input type="text" name={name} id={name} placeholder={"Enter " + name} value={fullName} onChange={handleInputChange}></input>
                 </label>
                 <label htmlFor={result}>
                     {result}
@@ -65,15 +91,19 @@ function EducationExperience({type, name, result, startDate, endDate, location, 
 
 }
 
-//get .CV inside #root
 export default function Forms() {
     return (
         <>
-            <EducationExperience type="Personal" name="Name" email="Email" number="Number" location="location"/>
-            <EducationExperience type="Education" name="School" result="Degree" startDate="Start" endDate="End" location="location" />
-            <EducationExperience type="Experience" name="Company" result="Position" startDate="Start" endDate="End" location="location" />   
+            <div className="forms">
+                <CreateButtons />
+                <CreateForm type="Personal" name="Name" email="Email" number="Number" location="location"/>
+                <CreateForm type="Education" name="School" result="Degree" startDate="Start" endDate="End" location="location" />
+                <CreateForm type="Experience" name="Company" result="Position" startDate="Start" endDate="End" location="location" />
+            </div>
 
-            
+            <div className="CV">
+                <PersonalInfo name={"dsad"}/>
+            </div>
         </>
     )
 }
