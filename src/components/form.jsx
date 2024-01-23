@@ -19,7 +19,8 @@ function PersonalInfo ({name, email, phone, address}) {
 
 function CreateForm({
     type, name, result, startDate, endDate, location, description, number, email,
-    setFullName, fullName, setFullEmail, fullEmail, setFullNumber, fullNumber,
+    setFullName, fullName, setFullEmail, fullEmail, setFullNumber, fullNumber, setLocationPersonal,
+    locationPersonal
 }) {
 
     if (startDate || endDate) {
@@ -70,7 +71,7 @@ function CreateForm({
                     </label>
                     <label htmlFor={location}>
                         Location
-                        <input type="text" name={location} id={location} placeholder={"Enter " + location}/>
+                        <input type="text" name={location} id={location} placeholder={"Enter " + location} value={locationPersonal} onChange={e => setLocationPersonal(e.target.value)}/>
                     </label>
                     <button type="submit" className="submit">
                         Submit
@@ -87,15 +88,15 @@ function CreateForm({
 export default function Forms() {
 
     const [fullName, setFullName] = useState('Johnny Cena');
-    const [fullEmail, setFullEmail] = useState('Ibbeisgay@gmail.com');
-    const [fullNumber, setFullNumber] = useState('6969696969');
-    const [address, setAddress] = useState('');
+    const [fullEmail, setFullEmail] = useState('JohnnyCena@gmail.com');
+    const [fullNumber, setFullNumber] = useState('+4662651951');
+    const [locationPersonal, setLocationPersonal] = useState('Zimbabwe');
 
     return (
         <>
             <div className="forms">
                 <CreateButtons />
-                <CreateForm type="Personal" name="Name" email="Email" number="Number" location="location" setFullName={setFullName} fullName={fullName} setFullEmail={setFullEmail} fullEmail={fullEmail} setFullNumber={setFullNumber} fullNumber={fullNumber}/>
+                <CreateForm type="Personal" name="Name" email="Email" number="Number" location="location" setFullName={setFullName} fullName={fullName} setFullEmail={setFullEmail} fullEmail={fullEmail} setFullNumber={setFullNumber} fullNumber={fullNumber} locationPersonal={locationPersonal} setLocationPersonal={setLocationPersonal}/>
                 <CreateForm type="Education" name="School" result="Degree" startDate="Start" endDate="End" location="location" />
                 <CreateForm type="Experience" name="Company" result="Position" startDate="Start" endDate="End" location="location" description="description" />
             </div>
@@ -106,7 +107,7 @@ export default function Forms() {
                 <div className="personal-other">
                     <div className="email">{fullEmail}</div>
                     <div className="phone">{fullNumber}</div>
-                    <div className="address"></div>
+                    <div className="address">{locationPersonal}</div>
                 </div>
             </header>
             </div>
