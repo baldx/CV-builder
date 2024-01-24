@@ -1,27 +1,15 @@
 import { useState } from 'react'
 import CreateButtons from './topOption';
 
-function PersonalInfo ({name, email, phone, address}) {
-    return (
-        <>
-            <header>
-                <div className="name">{name}</div>
-                <div className="personal-other">
-                    <div className="email">{email}</div>
-                    <div className="phone">{phone}</div>
-                    <div className="address">{address}</div>
-                </div>
-            </header>
-        </>
-    )
+function click () {
+    console.log("test");
 }
-
 
 function CreateForm({
     type, name, result, startDate, endDate, location, description, number, email,
     setFullName, fullName, setFullEmail, fullEmail, setFullNumber, fullNumber, setLocationPersonal,
     locationPersonal, school, setSchool, degree, setDegree, startSchool, setStartSchool, endSchool,
-    setEndSchool, locationSchool, setLocationSchool, company, setCompany, setDescription1, description1
+    setEndSchool, locationSchool, setLocationSchool, setDescription1, description1
 }) {
 
     if (startDate || endDate) {
@@ -64,7 +52,7 @@ function CreateForm({
                 <div className="form-title">{type}</div>
                     <label htmlFor={name}>
                         {name}
-                        <input type="text" name={name} id={name} placeholder={"Enter " + name} value={company} onChange={e => setCompany(e.target.value)} />
+                        <input type="text" name={name} id={name} placeholder={"Enter " + name} value={fullName} onChange={e => setFullName(e.target.value)} />
                     </label>
                     <label htmlFor={email}>
                         {email}
@@ -106,13 +94,13 @@ export default function Forms() {
     const [endCompany, setEndCompany] = useState('03/04/21')
     const [locationCompany, setLocationCompany] = useState('Angola')
     
-    const [descriptionSchool, setDescriptionSchool] = useState('asd');
-    const [descriptionCompany, setDescriptionCompany] = useState('sadsadsadsad');
+    const [descriptionSchool, setDescriptionSchool] = useState('');
+    const [descriptionCompany, setDescriptionCompany] = useState('');
 
     return (
         <>
             <div className="forms">
-                <CreateButtons />
+                <CreateButtons clickEvent={click()} />
                 <CreateForm type="Personal" name="Name" email="Email" number="Number" location="location" setFullName={setFullName} fullName={fullName} setFullEmail={setFullEmail} fullEmail={fullEmail} setFullNumber={setFullNumber} fullNumber={fullNumber} locationPersonal={locationPersonal} setLocationPersonal={setLocationPersonal}/>
                 <CreateForm type="Education" name="School" result="Degree" startDate="Start" endDate="End" location="location" setSchool={setSchool} school={school} setDegree={setDegree} degree={degree} startSchool={startSchool} setStartSchool={setStartSchool} endSchool={endSchool} setEndSchool={setEndSchool}  locationSchool={locationSchool} setLocationSchool={setLocationSchool} description1={descriptionSchool} setDescription1={setDescriptionSchool}/>
                 <CreateForm type="Experience" name="Company" result="Position" startDate="Start" endDate="End" location="location" description="description" school={company} setSchool={setCompany} setDegree={setPosition} degree={position} startSchool={startCompany} setStartSchool={setStartCompany} endSchool={endCompany} setEndSchool={setEndCompany}  locationSchool={locationCompany} setLocationSchool={setLocationCompany} description1={descriptionCompany} setDescription1={setDescriptionCompany}/>
