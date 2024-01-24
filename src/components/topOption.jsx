@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
-function CreateOption({type, innerText}) {
+function CreateOption({type, innerText, clickEvent}) {
     return (
         <>
-            <button className={type + ' ' + 'option'}>{innerText}</button>
+            <button className={type + ' ' + 'option'} onClick={clickEvent}>{innerText} </button>
         </>
     )
 }
