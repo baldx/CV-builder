@@ -188,7 +188,6 @@ header {
 .description {
   width: 50%;
   overflow-wrap: break-word;
-  background-color: red;
 }
 
 .date {
