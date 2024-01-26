@@ -1,10 +1,6 @@
 import { useState } from 'react'
 import CreateButtons from './topOption';
 
-function click () {
-    console.log("test");
-}
-
 function CreateForm({
     type, name, result, startDate, endDate, location, description, number, email,
     setFullName, fullName, setFullEmail, fullEmail, setFullNumber, fullNumber, setLocationPersonal,
@@ -12,9 +8,30 @@ function CreateForm({
     setEndSchool, locationSchool, setLocationSchool, setDescription1, description1
 }) {
 
+    const [isClicked, setIsClicked] = useState(false);
+    const [isSubmittedBtn, setIsSubmittedBtn] = useState('Submit')
+
+    function handleClick(e) {
+        setIsClicked(!isClicked);
+        e.preventDefault();
+    }
+
+    const dynamicStyle = {
+        filter: isClicked ? 'blur(8px)' : 'none'
+      };
+
+    const submitBtnStyle = {
+        display: isClicked ? 'block' : 'none',
+    };
+
+    const handleClickSubmit = () => {
+        setIsSubmittedBtn((prevValue) => (prevValue === 'Submit' ? 'Edit' : 'Submit'));
+    };
+
     if (startDate || endDate) {
         return (
-            <form className={type}>
+            <form className={type} onSubmit={handleClick}>
+                <div className="blur" style={dynamicStyle}>
                 <div className="form-title">{type}</div>
                     <label htmlFor={name}>
                         {name}
@@ -40,34 +57,37 @@ function CreateForm({
                         Description 
                         <textarea name={description} id={description} cols="30" rows="10" value={description1} onChange={e => setDescription1(e.target.value)}></textarea>
                     </label>
-                    <button type="submit" className="submit">
-                        Submit
+                </div>
+                    <button type="submit" className="submit" onClick={handleClickSubmit}>
+                        {isSubmittedBtn}
                     </button>
             </form>
         )
     } else {
         return (
             <>
-                <form className={type}>
-                <div className="form-title">{type}</div>
-                    <label htmlFor={name}>
-                        {name}
-                        <input type="text" name={name} id={name} placeholder={"Enter " + name} value={fullName} onChange={e => setFullName(e.target.value)} />
-                    </label>
-                    <label htmlFor={email}>
-                        {email}
-                        <input type="text" name={email} id={email} placeholder={"Enter " + email} value={fullEmail} onChange={e => setFullEmail(e.target.value)}/>
-                    </label>
-                    <label htmlFor={number}>
-                        Number
-                        <input type="text" name={number} id={number} placeholder={"Enter " + number} value={fullNumber} onChange={e => setFullNumber(e.target.value)}/>
-                    </label>
-                    <label htmlFor={location}>
-                        Location
-                        <input type="text" name={location} id={location} placeholder={"Enter " + location} value={locationPersonal} onChange={e => setLocationPersonal(e.target.value)}/>
-                    </label>
-                    <button type="submit" className="submit">
-                        Submit
+                <form className={type} onSubmit={handleClick}>
+                    <div className="blur" style={dynamicStyle}>
+                    <div className="form-title">{type}</div>
+                        <label htmlFor={name}>
+                            {name}
+                            <input type="text" name={name} id={name} placeholder={"Enter " + name} value={fullName} onChange={e => setFullName(e.target.value)} />
+                        </label>
+                        <label htmlFor={email}>
+                            {email}
+                            <input type="text" name={email} id={email} placeholder={"Enter " + email} value={fullEmail} onChange={e => setFullEmail(e.target.value)}/>
+                        </label>
+                        <label htmlFor={number}>
+                            Number
+                            <input type="text" name={number} id={number} placeholder={"Enter " + number} value={fullNumber} onChange={e => setFullNumber(e.target.value)}/>
+                        </label>
+                        <label htmlFor={location}>
+                            Location
+                            <input type="text" name={location} id={location} placeholder={"Enter " + location} value={locationPersonal} onChange={e => setLocationPersonal(e.target.value)}/>
+                        </label>
+                    </div>
+                    <button type="submit" className="submit" onClick={handleClickSubmit}>
+                        {isSubmittedBtn}
                     </button>
                 </form>
             </>
@@ -100,7 +120,7 @@ export default function Forms() {
     return (
         <>
             <div className="forms">
-                <CreateButtons clickEvent={click()} />
+                <CreateButtons clickEvent={console.log("hello")} />
                 <CreateForm type="Personal" name="Name" email="Email" number="Number" location="location" setFullName={setFullName} fullName={fullName} setFullEmail={setFullEmail} fullEmail={fullEmail} setFullNumber={setFullNumber} fullNumber={fullNumber} locationPersonal={locationPersonal} setLocationPersonal={setLocationPersonal}/>
                 <CreateForm type="Education" name="School" result="Degree" startDate="Start" endDate="End" location="location" setSchool={setSchool} school={school} setDegree={setDegree} degree={degree} startSchool={startSchool} setStartSchool={setStartSchool} endSchool={endSchool} setEndSchool={setEndSchool}  locationSchool={locationSchool} setLocationSchool={setLocationSchool} description1={descriptionSchool} setDescription1={setDescriptionSchool}/>
                 <CreateForm type="Experience" name="Company" result="Position" startDate="Start" endDate="End" location="location" description="description" school={company} setSchool={setCompany} setDegree={setPosition} degree={position} startSchool={startCompany} setStartSchool={setStartCompany} endSchool={endCompany} setEndSchool={setEndCompany}  locationSchool={locationCompany} setLocationSchool={setLocationCompany} description1={descriptionCompany} setDescription1={setDescriptionCompany}/>
