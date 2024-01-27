@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import CreateButtons from './topOption';
+import CreateOption from './topOption';
 
 function CreateForm({
     type, name, result, startDate, endDate, location, description, number, email,
@@ -88,6 +88,7 @@ function CreateForm({
                     </div>
                     <button type="submit" className="submit" onClick={handleClickSubmit}>
                         {isSubmittedBtn}
+
                     </button>
                 </form>
             </>
@@ -97,30 +98,74 @@ function CreateForm({
 
 export default function Forms() {
 
-    const [fullName, setFullName] = useState('Johnny Cena');
-    const [fullEmail, setFullEmail] = useState('JohnnyCena@gmail.com');
-    const [fullNumber, setFullNumber] = useState('+4662651951');
-    const [locationPersonal, setLocationPersonal] = useState('Zimbabwe');
+    const initialState = {
+        fullName: 'Johnny Cena',
+        fullEmail: 'JohnnyCena@gmail.com',
+        fullNumber: '+4662651951',
+        locationPersonal: 'Zimbabwe',
 
-    const [school, setSchool] = useState('Thoren framtid');
-    const [degree, setDegree] = useState('Some degree');
-    const [startSchool, setStartSchool] = useState('08/07/23')
-    const [endSchool, setEndSchool] = useState('present')
-    const [locationSchool, setLocationSchool] = useState('Zambia')
+        school: 'Thoren framtid',
+        degree: 'Some degree',
+        startSchool: '08/07/23',
+        endSchool: 'present',
+        locationSchool: 'Zambia',
+
+        company: 'ICA',
+        position: 'Waiter',
+        startCompany: '28/01/21',
+        endCompany: '03/04/21',
+        locationCompany: 'Angola',
+
+        descriptionSchool: '',
+        descriptionCompany: '',
+    }
+
+    const [fullName, setFullName] = useState(initialState.fullName);
+    const [fullEmail, setFullEmail] = useState(initialState.fullEmail);
+    const [fullNumber, setFullNumber] = useState(initialState.fullNumber);
+    const [locationPersonal, setLocationPersonal] = useState(initialState.locationPersonal);
+
+    const [school, setSchool] = useState(initialState.school);
+    const [degree, setDegree] = useState(initialState.degree);
+    const [startSchool, setStartSchool] = useState(initialState.startSchool)
+    const [endSchool, setEndSchool] = useState(initialState.endSchool)
+    const [locationSchool, setLocationSchool] = useState(initialState.locationSchool)
     
-    const [company, setCompany] = useState('ICA');
-    const [position, setPosition] = useState('Waiter');
-    const [startCompany, setStartCompany] = useState('28/01/21')
-    const [endCompany, setEndCompany] = useState('03/04/21')
-    const [locationCompany, setLocationCompany] = useState('Angola')
+    const [company, setCompany] = useState(initialState.company);
+    const [position, setPosition] = useState(initialState.position);
+    const [startCompany, setStartCompany] = useState(initialState.startCompany)
+    const [endCompany, setEndCompany] = useState(initialState.endCompany)
+    const [locationCompany, setLocationCompany] = useState(initialState.locationCompany)
     
-    const [descriptionSchool, setDescriptionSchool] = useState('');
-    const [descriptionCompany, setDescriptionCompany] = useState('');
+    const [descriptionSchool, setDescriptionSchool] = useState(initialState.descriptionSchool);
+    const [descriptionCompany, setDescriptionCompany] = useState(initialState.descriptionCompany);
+
+    const handleReset = () => {
+        setFullName(initialState.fullName);
+        setFullEmail(initialState.fullEmail);
+        setFullNumber(initialState.fullNumber);
+        setLocationPersonal(initialState.locationPersonal);
+        setSchool(initialState.school);
+        setDegree(initialState.degree);
+        setStartSchool(initialState.startSchool);
+        setEndSchool(initialState.endSchool);
+        setLocationSchool(initialState.locationSchool);
+        setCompany(initialState.company);
+        setPosition(initialState.position);
+        setStartCompany(initialState.startCompany);
+        setEndCompany(initialState.endCompany);
+        setLocationCompany(initialState.locationCompany);
+        setDescriptionSchool(initialState.descriptionSchool);
+        setDescriptionCompany(initialState.descriptionCompany);
+    }
 
     return (
         <>
             <div className="forms">
-                <CreateButtons clickEvent={console.log("hello")} />
+                <div className="top">
+                    <CreateOption type="clear" innerText="Clear"/>
+                    <CreateOption type="example" innerText="Load Example" clickEvent={handleReset}/>
+                </div>
                 <CreateForm type="Personal" name="Name" email="Email" number="Number" location="location" setFullName={setFullName} fullName={fullName} setFullEmail={setFullEmail} fullEmail={fullEmail} setFullNumber={setFullNumber} fullNumber={fullNumber} locationPersonal={locationPersonal} setLocationPersonal={setLocationPersonal}/>
                 <CreateForm type="Education" name="School" result="Degree" startDate="Start" endDate="End" location="location" setSchool={setSchool} school={school} setDegree={setDegree} degree={degree} startSchool={startSchool} setStartSchool={setStartSchool} endSchool={endSchool} setEndSchool={setEndSchool}  locationSchool={locationSchool} setLocationSchool={setLocationSchool} description1={descriptionSchool} setDescription1={setDescriptionSchool}/>
                 <CreateForm type="Experience" name="Company" result="Position" startDate="Start" endDate="End" location="location" description="description" school={company} setSchool={setCompany} setDegree={setPosition} degree={position} startSchool={startCompany} setStartSchool={setStartCompany} endSchool={endCompany} setEndSchool={setEndCompany}  locationSchool={locationCompany} setLocationSchool={setLocationCompany} description1={descriptionCompany} setDescription1={setDescriptionCompany}/>
